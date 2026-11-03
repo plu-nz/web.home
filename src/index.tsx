@@ -18,8 +18,8 @@ function Arrow(props: { direction?: 'right' | 'up' }) {
 }
 
 const products = [
-  { no: '01', name: 'PLUNZ Photos', category: 'Photography', description: 'A quiet home for your photos. Share a portfolio, organize albums, and let the images speak for themselves.', note: 'Portfolio & albums', class: 'photos', symbol: '◰' },
-  { no: '02', name: 'PLUNZ Meals', category: 'Everyday planning', description: 'Make meal planning feel manageable. Keep your ideas, prep, and routine in one simple place.', note: 'Meals & prep', class: 'meals', symbol: '▦' },
+  { no: '01', name: 'PLUNZ Photo', category: 'Photography', description: 'A quiet home for your photos. Share a portfolio, organize albums, and let the images speak for themselves.', note: 'Portfolio & albums', class: 'photos', symbol: '◰' },
+  { no: '02', name: 'PLUNZ Meal', category: 'Everyday planning', description: 'Make meal planning feel manageable. Keep your ideas, prep, and routine in one simple place.', note: 'Meals & prep', class: 'meals', symbol: '▦' },
   { no: '03', name: 'PLUNZ Practice', category: 'Practice management', description: 'A calmer way for psychologists to coordinate appointments, confirmations, and payments.', note: 'Scheduling', class: 'practice', symbol: '◷' },
 ];
 
