@@ -61,7 +61,7 @@ function App() {
           <div class="card-top"><span class="card-number">{product.no} / 03</span><span class="status"><span class="status-dot" /> In development</span></div>
           <div class="app-visual" aria-hidden="true"><div class="visual-surface"><span class="visual-symbol">{product.symbol}</span><span class="visual-plus">+</span></div></div>
           <div class="card-content"><p class="card-category">{product.category}</p><h3 id={`title-${product.no}`}>{product.name}</h3><p>{product.description}</p></div>
-          <div class="card-foot"><span>{product.note}</span><span aria-hidden="true">↗</span></div>
+          <div class="card-foot"><span>{product.note}</span></div>
         </article>)}</div>
         <p class="availability-note">These apps are in development. Names and availability may change as they take shape.</p>
       </div></section>

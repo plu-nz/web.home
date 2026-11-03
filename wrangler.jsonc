@@ -3,7 +3,7 @@
   "account_id": "d9843893c0daa49287456b9efb2cd021",
   "main": "src/worker.ts",
   "compatibility_date": "2026-11-03",
-  "assets": { "directory": "./dist", "binding": "ASSETS" },
+  "assets": { "directory": "./dist", "binding": "ASSETS", "run_worker_first": true },
   "routes": [
     { "pattern": "www.plu.nz", "custom_domain": true },
     { "pattern": "plu.nz", "custom_domain": true }
