@@ -22,6 +22,6 @@ npm run deploy
 
 This MVP uses the [visual identity proposal](https://github.com/plu-nz/.github/pull/2) pending approval. It uses the exact Darkppuccin colors, a square PLUNZ mark, system fonts, and a restrained icon style. Review the proposal before changing shared rules.
 
-Product display names follow the [PLUNZ product naming convention](https://github.com/plu-nz/.github/blob/main/decisions/2026-11-03-product-naming.md). Keep unavailable products visibly marked as in development.
+Product names are decided individually. Capture is the working name of the photo app; the other cards use descriptive placeholders until named. Keep unavailable products visibly marked as in development.
 
 The [source index](src/README.md) describes the UI and routing. The [public assets index](public/README.md) covers the logo and PWA icons. Shared context lives in [plu-nz/.github](https://github.com/plu-nz/.github).
