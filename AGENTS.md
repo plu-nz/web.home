@@ -5,6 +5,7 @@ Read [README.md](README.md) and the [PLUNZ shared context](https://github.com/pl
 - **Responsibilities:** `src/index.tsx` renders the hub; `src/style.css` owns presentation; `src/worker.ts` redirects the apex domain and serves built assets. `public/` contains icons and the web manifest.
 - **Organization:** keep this static hub small. Every directory needs a `README.md` index. Do not add a backend or database without a concrete product need.
 - **Conventions:** use English for source, documentation, and visitor copy. Keep status claims accurate. Use semantic HTML and visible keyboard focus.
+- **Product names:** follow the [shared product naming convention](https://github.com/plu-nz/.github/blob/main/decisions/2026-11-03-product-naming.md) when editing app cards.
 - **Dependencies:** prefer the current SolidJS, TypeScript, and Vite stack. Avoid new packages for small display features. Use exact Darkppuccin colors until the shared visual proposal is approved or amended.
 - **Commands:** `npm ci`, `npm run dev`, `npm run check`, `npm run build`, and `npm run deploy`.
 - **Completion checks:** run `npm run build`, inspect the built asset paths, verify keyboard and small-screen behavior, and check the canonical domain and HTTPS after deployment.
