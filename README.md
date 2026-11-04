@@ -2,6 +2,8 @@
 
 The public hub at [www.plu.nz](https://www.plu.nz/) introduces PLUNZ and its applications. Product availability is stated explicitly; Split links to its live application; Capture links to its read-only preview while the other concepts remain unavailable.
 
+The interface follows the browser language for English, Portuguese, and Spanish, falls back to English, and offers a language selector. An explicit choice is shared with PLUNZ web apps on `plu.nz` in the same browser.
+
 ## Stack
 
 SolidJS, TypeScript, Vite, and Cloudflare Workers Static Assets. The Worker redirects `plu.nz` to the canonical `www.plu.nz` host. There are no runtime APIs, accounts, or analytics.
