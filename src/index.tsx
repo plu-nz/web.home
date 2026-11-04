@@ -18,7 +18,7 @@ function Arrow(props: { direction?: 'right' | 'up' }) {
 }
 
 const products = [
-  { no: '01', name: 'Capture', category: 'Photography', description: 'A quiet home for your photos. Share a portfolio, organize albums, and let the images speak for themselves.', note: 'Portfolio & albums', class: 'photos', symbol: '◰' },
+  { no: '01', name: 'Capture', category: 'Photography', description: 'A quiet home for your photos. Share a portfolio, organize albums, and let the images speak for themselves.', note: 'Portfolio & albums', class: 'photos', symbol: '◰', preview: 'https://capture.plu.nz/' },
   { no: '02', name: 'Meal planning', category: 'Concept', description: 'Make meal planning feel manageable. Keep your ideas, prep, and routine in one simple place.', note: 'Meals & prep', class: 'meals', symbol: '▦' },
   { no: '03', name: 'Psychologist practice', category: 'Concept', description: 'A calmer way for psychologists to coordinate appointments, confirmations, and payments.', note: 'Scheduling', class: 'practice', symbol: '◷' },
 ];
@@ -58,12 +58,12 @@ function App() {
         <div class="section-index"><span>THE TOOLBOX</span><span>02 / 02</span></div>
         <div class="apps-heading"><div><div class="eyebrow">WHAT WE'RE BUILDING</div><h2 id="apps-title">Meet the apps<span class="accent-dot">.</span></h2></div><p>Three starting points. Each with its own purpose, all part of the same family.</p></div>
         <div class="app-grid">{products.map(product => <article class={`app-card ${product.class}`} aria-labelledby={`title-${product.no}`}>
-          <div class="card-top"><span class="card-number">{product.no} / 03</span><span class="status"><span class="status-dot" /> In development</span></div>
+          <div class="card-top"><span class="card-number">{product.no} / 03</span><span class="status"><span class="status-dot" /> {product.preview ? 'Read-only preview' : 'In development'}</span></div>
           <div class="app-visual" aria-hidden="true"><div class="visual-surface"><span class="visual-symbol">{product.symbol}</span><span class="visual-plus">+</span></div></div>
           <div class="card-content"><p class="card-category">{product.category}</p><h3 id={`title-${product.no}`}>{product.name}</h3><p>{product.description}</p></div>
-          <div class="card-foot"><span>{product.note}</span></div>
+          <div class="card-foot"><span>{product.note}</span>{product.preview && <a class="preview-link" href={product.preview} aria-label="Open Capture preview">Open preview <Arrow /></a>}</div>
         </article>)}</div>
-        <p class="availability-note">These apps are in development. Names and availability may change as they take shape.</p>
+        <p class="availability-note">Capture has a read-only preview. The other apps are in development; their names and availability may change.</p>
       </div></section>
 
       <section class="closing shell" aria-labelledby="closing-title"><Mark class="closing-mark" /><div><p class="eyebrow">THIS IS JUST THE START</p><h2 id="closing-title">A little more possible,<br /><em>one app at a time.</em></h2></div><a href="https://github.com/plu-nz" target="_blank" rel="noopener noreferrer">Follow along on GitHub <Arrow direction="up" /></a></section>

@@ -1,6 +1,6 @@
 # PLUNZ home
 
-The public hub at [www.plu.nz](https://www.plu.nz/) introduces PLUNZ and its applications. Product availability is stated explicitly; the hub does not link to unfinished apps.
+The public hub at [www.plu.nz](https://www.plu.nz/) introduces PLUNZ and its applications. Product availability is stated explicitly; Capture links to its read-only preview while other concepts remain unavailable.
 
 ## Stack
 
