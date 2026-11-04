@@ -9,14 +9,14 @@ SolidJS, TypeScript, Vite, and Cloudflare Workers Static Assets. The Worker redi
 ## Commands
 
 ```sh
-npm ci
-npm run dev
-npm run check
-npm run build
-npm run deploy
+pnpm install --frozen-lockfile
+pnpm dev
+pnpm check
+pnpm build
+pnpm deploy
 ```
 
-`npm run deploy` publishes to the PLUNZ Cloudflare account. The account and hostnames are declared in `wrangler.jsonc`.
+`pnpm deploy` publishes to the PLUNZ Cloudflare account. The account and hostnames are declared in `wrangler.jsonc`.
 
 ## Design
 
