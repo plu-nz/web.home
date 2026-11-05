@@ -6,7 +6,7 @@ The interface follows the browser language for English, Portuguese, and Spanish,
 
 ## Stack
 
-SolidJS, TypeScript, Vite, and Cloudflare Workers Static Assets. The Worker redirects `plu.nz` to the canonical `www.plu.nz` host. There are no runtime APIs, accounts, or analytics.
+SolidJS, TypeScript, Vite, the pinned `@plunz/storybook` component library, and Cloudflare Workers Static Assets. The Worker redirects `plu.nz` to the canonical `www.plu.nz` host. There are no runtime APIs, accounts, or analytics.
 
 ## Commands
 

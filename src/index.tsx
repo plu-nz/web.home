@@ -1,6 +1,8 @@
 import { render } from 'solid-js/web';
 import { createEffect, createSignal, onCleanup } from 'solid-js';
+import { LinkButton, Theme } from '@plunz/storybook';
 import { copy, detectLocale, readPreference, savePreference, type Locale, type Preference } from './locale';
+import '@plunz/storybook/styles.css';
 import './style.css';
 
 function Mark(props: { class?: string }) {
@@ -50,7 +52,7 @@ function App() {
     document.title = `PLUNZ — ${t('taglineStart')} ${t('taglineEnd')}`;
     document.querySelector('meta[name="description"]')?.setAttribute('content', t('heroDescription'));
   });
-  return <>
+  return <Theme accent="green" shape="square">
     <a class="skip-link" href="#main">{t('skip')}</a>
     <header class="site-header shell">
       <a class="brand" href="/" aria-label={t('home')}><Mark class="brand-mark" /><span>PLUNZ<span class="brand-period">.</span></span></a>
@@ -64,7 +66,7 @@ function App() {
           <div class="eyebrow"><span class="eyebrow-line" /> {t('eyebrow')}</div>
           <h1 id="hero-title">{t('taglineStart')}<br /><em>{t('taglineEnd')}</em></h1>
           <p>{t('heroDescription')}</p>
-          <a class="primary-link" href="#apps">{t('exploreApps')} <Arrow /></a>
+          <LinkButton class="primary-link" href="#apps">{t('exploreApps')} <Arrow /></LinkButton>
         </div>
         <div class="hero-art" aria-label={t('markDescription')} role="img">
           <div class="art-grid" aria-hidden="true" />
@@ -97,7 +99,7 @@ function App() {
     </main>
 
     <footer class="site-footer shell"><a class="brand" href="/" aria-label={t('home')}><Mark class="brand-mark" /><span>PLUNZ<span class="brand-period">.</span></span></a><p>{t('taglineStart')} {t('taglineEnd')}</p><a href="https://github.com/plu-nz" target="_blank" rel="noopener noreferrer">GitHub <Arrow direction="up" /></a><span>© {new Date().getFullYear()} PLUNZ</span></footer>
-  </>;
+  </Theme>;
 }
 
 render(() => <App />, document.getElementById('root')!);
