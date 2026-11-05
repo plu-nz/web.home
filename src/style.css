@@ -5,6 +5,7 @@
 .preview-link{display:inline-flex;align-items:center;gap:5px;color:var(--blue);font-weight:700}.preview-link:hover{text-decoration:underline}.preview-link svg{width:16px;height:16px}
 
 .split .app-visual{background:#393947}.split .visual-surface,.split .card-category{color:var(--orange)}
+.pomodoro .app-visual{background:#393947}.pomodoro .visual-surface,.pomodoro .card-category{color:var(--blue)}
 h1{white-space:normal}
 .language-control{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:12px;white-space:nowrap}.language-control select{min-height:40px;max-width:132px;background:var(--surface);color:var(--text);border:1px solid var(--line);border-radius:2px;padding:7px 8px;font:inherit}.language-control select:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
 @media(max-width:700px){.site-header{height:auto;min-height:72px;flex-wrap:wrap;padding-block:12px}.site-header nav{order:3;width:100%;gap:16px}.site-header nav a:nth-child(2){display:inline}.language-control span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}}
