@@ -84,7 +84,7 @@ function App() {
       <section class="apps-section" id="apps" aria-labelledby="apps-title"><div class="shell">
         <div class="section-index"><span>{t('theToolbox')}</span><span>02 / 02</span></div>
         <div class="apps-heading"><div><div class="eyebrow">{t('building')}</div><h2 id="apps-title">{t('meet')}<span class="accent-dot">.</span></h2></div><p>{t('appsDescription')}</p></div>
-        <div class="app-grid">{products().map(product => <article class={`app-card ${product.class}`} aria-labelledby={`title-${product.no}`}>
+        <div class="app-grid">{products().map(product => <article class={`app-card ${product.class}`} classList={{ linked: Boolean(product.preview || product.href) }} aria-labelledby={`title-${product.no}`}>
           <div class="card-top"><span class="card-number">{product.no} / 05</span><span class="status"><span class="status-dot" /> {product.preview ? t('previewStatus') : product.href ? t('available') : t('development')}</span></div>
           <div class="app-visual" aria-hidden="true"><div class="visual-surface"><span class="visual-symbol">{product.symbol}</span><span class="visual-plus">+</span></div></div>
           <div class="card-content"><p class="card-category">{product.category}</p><h3 id={`title-${product.no}`}>{product.name}</h3><p>{product.description}</p></div>
