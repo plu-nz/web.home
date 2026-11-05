@@ -34,8 +34,6 @@ function App() {
   { no: '01', name: 'Capture', category: t('photography'), description: t('captureDescription'), note: t('portfolio'), class: 'photos', symbol: '◰', preview: 'https://capture.plu.nz/' },
   { no: '02', name: 'Split', category: t('everyday'), description: t('splitDescription'), note: t('billSplitting'), class: 'split', symbol: '÷', href: 'https://split.plu.nz/' },
   { no: '03', name: 'Pomodoro', category: t('everyday'), description: t('pomodoroDescription'), note: t('focusTimer'), class: 'pomodoro', symbol: '◷', href: 'https://pomodoro.plu.nz/' },
-  { no: '04', name: t('mealPlanning'), category: t('concept'), description: t('mealDescription'), note: t('meals'), class: 'meals', symbol: '▦' },
-  { no: '05', name: t('psychologistPractice'), category: t('concept'), description: t('practiceDescription'), note: t('scheduling'), class: 'practice', symbol: '◷' },
 ];
   const refreshSystem = () => setSystemLocale(detectLocale());
   const refreshPreference = () => setPreference(readPreference());
@@ -87,7 +85,7 @@ function App() {
         <div class="section-index"><span>{t('theToolbox')}</span><span>02 / 02</span></div>
         <div class="apps-heading"><div><div class="eyebrow">{t('building')}</div><h2 id="apps-title">{t('meet')}<span class="accent-dot">.</span></h2></div><p>{t('appsDescription')}</p></div>
         <div class="app-grid">{products().map(product => <article class={`app-card ${product.class}`} classList={{ linked: Boolean(product.preview || product.href) }} aria-labelledby={`title-${product.no}`}>
-          <div class="card-top"><span class="card-number">{product.no} / 05</span><span class="status"><span class="status-dot" /> {product.preview ? t('previewStatus') : product.href ? t('available') : t('development')}</span></div>
+          <div class="card-top"><span class="card-number">{product.no} / 03</span><span class="status"><span class="status-dot" /> {product.preview ? t('previewStatus') : t('available')}</span></div>
           <div class="app-visual" aria-hidden="true"><div class="visual-surface"><span class="visual-symbol">{product.symbol}</span><span class="visual-plus">+</span></div></div>
           <div class="card-content"><p class="card-category">{product.category}</p><h3 id={`title-${product.no}`}>{product.name}</h3><p>{product.description}</p></div>
           <div class="card-foot"><span>{product.note}</span>{(product.preview || product.href) && <a class="preview-link" href={product.preview || product.href} aria-label={`${product.preview ? t('openPreview') : t('openApp')} ${product.name}`}>{product.preview ? t('openPreview') : t('openApp')} <Arrow /></a>}</div>
