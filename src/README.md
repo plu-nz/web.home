@@ -1,6 +1,7 @@
 # Source
 
 - [index.tsx](index.tsx) renders the PLUNZ landing page and current app catalog.
+- [legal.tsx](legal.tsx) renders the shared privacy policy and terms at `/privacy` and `/terms`.
 - [locale.ts](locale.ts) contains English, Portuguese, and Spanish copy and browser-language detection.
 - [locale-preference.ts](locale-preference.ts) reads and writes the shared `plu.nz` language cookie and migrates an earlier local choice.
 - [style.css](style.css) defines visual tokens, responsive layout, and interaction states.

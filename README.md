@@ -4,6 +4,8 @@ The public hub at [www.plu.nz](https://www.plu.nz/) introduces PLUNZ and its app
 
 The interface follows the browser language for English, Portuguese, and Spanish, falls back to English, and offers a language selector. An explicit choice is shared with PLUNZ web apps on `plu.nz` in the same browser.
 
+The shared [privacy policy](https://www.plu.nz/privacy) and [terms](https://www.plu.nz/terms) cover the current apps, with Capture-specific Google account and Drive disclosures. These routes are rendered by the static site and linked from its footer.
+
 ## Stack
 
 SolidJS, TypeScript, Vite, the pinned `@plunz/storybook` component library, and Cloudflare Workers Static Assets. The Worker redirects `plu.nz` to the canonical `www.plu.nz` host. There are no runtime APIs, accounts, or analytics.

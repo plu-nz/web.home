@@ -4,6 +4,7 @@ import { LinkButton, Theme } from '@plunz/storybook';
 import { copy, detectLocale, readPreference, savePreference, type Locale, type Preference } from './locale';
 import '@plunz/storybook/styles.css';
 import './style.css';
+import { LegalPage } from './legal';
 
 function Mark(props: { class?: string }) {
   return <svg class={props.class} viewBox="0 0 64 64" aria-hidden="true">
@@ -65,24 +66,29 @@ function App() {
     window.removeEventListener('focus', refreshPreference);
     window.removeEventListener('pageshow', refreshPreference);
   });
-  createEffect(() => ({
-    locale: locale(),
-    title: `PLUNZ — ${t('taglineStart')} ${t('taglineEnd')}`,
-    description: t('heroDescription'),
-  }), ({ locale, title, description }) => {
+  createEffect(() => {
+    const legal = location.pathname === '/privacy' || location.pathname === '/terms';
+    return {
+      locale: locale(),
+      title: legal ? `${location.pathname === '/privacy' ? t('privacy') : t('terms')} — PLUNZ` : `PLUNZ — ${t('taglineStart')} ${t('taglineEnd')}`,
+      description: legal ? t('legalDescription') : t('heroDescription'),
+      canonical: `https://www.plu.nz${legal ? location.pathname : '/'}`,
+    };
+  }, ({ locale, title, description, canonical }) => {
     document.documentElement.lang = locale;
     document.title = title;
     document.querySelector('meta[name="description"]')?.setAttribute('content', description);
+    document.querySelector('link[rel="canonical"]')?.setAttribute('href', canonical);
   });
   return <Theme accent="green" shape="square">
     <a class="skip-link" href="#main">{t('skip')}</a>
     <header class="site-header shell">
       <a class="brand" href="/" aria-label={t('home')}><Mark class="brand-mark" /><span>PLUNZ<span class="brand-period">.</span></span></a>
-      <nav aria-label={t('navigation')}><a href="#apps">{t('explore')}</a><a href="#about">{t('about')}</a><a class="nav-github" href="https://github.com/plu-nz" target="_blank" rel="noopener noreferrer">GitHub <Arrow direction="up" /></a></nav>
+      <nav aria-label={t('navigation')}><a href="/#apps">{t('explore')}</a><a href="/#about">{t('about')}</a><a class="nav-github" href="https://github.com/plu-nz" target="_blank" rel="noopener noreferrer">GitHub <Arrow direction="up" /></a></nav>
       <label class="language-control"><span>{t('language')}</span><select aria-label={t('language')} value={preference()} onChange={event => changeLanguage(event.currentTarget.value as Preference)}><option value="system">{t('system')}</option><option value="en">English</option><option value="pt">Português</option><option value="es">Español</option></select></label>
     </header>
 
-    <main id="main">
+    {location.pathname === '/privacy' || location.pathname === '/terms' ? <LegalPage kind={location.pathname === '/privacy' ? 'privacy' : 'terms'} locale={locale()} /> : <main id="main">
       <section class="hero shell" aria-labelledby="hero-title">
         <div class="hero-copy">
           <div class="eyebrow"><span class="eyebrow-line" /> {t('eyebrow')}</div>
@@ -118,9 +124,9 @@ function App() {
       </div></section>
 
       <section class="closing shell" aria-labelledby="closing-title"><Mark class="closing-mark" /><div><p class="eyebrow">{t('justStart')}</p><h2 id="closing-title">{t('littleMore')}<br /><em>{t('oneApp')}</em></h2></div><a href="https://github.com/plu-nz" target="_blank" rel="noopener noreferrer">{t('follow')} <Arrow direction="up" /></a></section>
-    </main>
+    </main>}
 
-    <footer class="site-footer shell"><a class="brand" href="/" aria-label={t('home')}><Mark class="brand-mark" /><span>PLUNZ<span class="brand-period">.</span></span></a><p>{t('taglineStart')} {t('taglineEnd')}</p><a href="https://github.com/plu-nz" target="_blank" rel="noopener noreferrer">GitHub <Arrow direction="up" /></a><span>© {new Date().getFullYear()} PLUNZ</span></footer>
+    <footer class="site-footer shell"><a class="brand" href="/" aria-label={t('home')}><Mark class="brand-mark" /><span>PLUNZ<span class="brand-period">.</span></span></a><p>{t('taglineStart')} {t('taglineEnd')}</p><a href="/privacy">{t('privacy')}</a><a href="/terms">{t('terms')}</a><a href="https://github.com/plu-nz" target="_blank" rel="noopener noreferrer">GitHub <Arrow direction="up" /></a><span>© {new Date().getFullYear()} PLUNZ</span></footer>
   </Theme>;
 }
 
