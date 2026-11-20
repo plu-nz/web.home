@@ -39,7 +39,7 @@ function App() {
   const t = (key: keyof typeof copy.en) => copy[locale()][key] || copy.en[key];
   const changeLanguage = (value: Preference) => { setPreference(value); savePreference(value); };
   const products = () => [
-  { no: '01', name: 'Capture', category: t('photography'), description: t('captureDescription'), note: t('portfolio'), class: 'photos', symbol: <CaptureMark />, preview: 'https://capture.plu.nz/' },
+  { no: '01', name: 'Capture', category: t('photography'), description: t('captureDescription'), note: t('portfolio'), class: 'photos', symbol: <CaptureMark />, href: 'https://capture.plu.nz/' },
   { no: '02', name: 'Split', category: t('everyday'), description: t('splitDescription'), note: t('billSplitting'), class: 'split', symbol: '÷', href: 'https://split.plu.nz/' },
   { no: '03', name: 'Pomodoro', category: t('everyday'), description: t('pomodoroDescription'), note: t('focusTimer'), class: 'pomodoro', symbol: '◷', href: 'https://pomodoro.plu.nz/' },
 ];

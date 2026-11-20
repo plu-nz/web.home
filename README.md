@@ -1,6 +1,6 @@
 # PLUNZ home
 
-The public hub at [www.plu.nz](https://www.plu.nz/) introduces PLUNZ and its applications. Split and Pomodoro link to their live applications; Capture links to its read-only preview. Concepts without a public app are kept off the portfolio.
+The public hub at [www.plu.nz](https://www.plu.nz/) introduces PLUNZ and its applications. Capture, Split, and Pomodoro link to their live applications. Concepts without a public app are kept off the portfolio.
 
 The interface follows the browser language for English, Portuguese, and Spanish, falls back to English, and offers a language selector. An explicit choice is shared with PLUNZ web apps on `plu.nz` in the same browser.
 
