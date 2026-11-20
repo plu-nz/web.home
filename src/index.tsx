@@ -31,6 +31,19 @@ function CaptureMark() {
   </svg>;
 }
 
+/** A portfolio card. `preview` marks a read-only preview; `href` a live app. */
+interface Product {
+  no: string;
+  name: string;
+  category: string;
+  description: string;
+  note: string;
+  class: string;
+  symbol: string | ReturnType<typeof CaptureMark>;
+  preview?: string;
+  href?: string;
+}
+
 function App() {
 
   const [preference, setPreference] = createSignal<Preference>(readPreference());
@@ -38,7 +51,7 @@ function App() {
   const locale = (): Locale => preference() === 'system' ? systemLocale() : preference() as Locale;
   const t = (key: keyof typeof copy.en) => copy[locale()][key] || copy.en[key];
   const changeLanguage = (value: Preference) => { setPreference(value); savePreference(value); };
-  const products = () => [
+  const products = (): Product[] => [
   { no: '01', name: 'Capture', category: t('photography'), description: t('captureDescription'), note: t('portfolio'), class: 'photos', symbol: <CaptureMark />, href: 'https://capture.plu.nz/' },
   { no: '02', name: 'Split', category: t('everyday'), description: t('splitDescription'), note: t('billSplitting'), class: 'split', symbol: '÷', href: 'https://split.plu.nz/' },
   { no: '03', name: 'Pomodoro', category: t('everyday'), description: t('pomodoroDescription'), note: t('focusTimer'), class: 'pomodoro', symbol: '◷', href: 'https://pomodoro.plu.nz/' },
