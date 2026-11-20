@@ -11,13 +11,14 @@
     "check": "tsc --noEmit"
   },
   "dependencies": {
-    "@plunz/storybook": "github:plu-nz/lib.storybook#3449d90",
-    "solid-js": "^1.9.18"
+    "@plunz/storybook": "github:plu-nz/lib.storybook#9d6dc67",
+    "@solidjs/web": "^2.0.3",
+    "solid-js": "^2.0.3"
   },
   "devDependencies": {
+    "@solidjs/vite-plugin": "^3.0.1",
     "typescript": "^5.9.3",
-    "vite": "^7.3.1",
-    "vite-plugin-solid": "^2.11.15",
+    "vite": "^8.3.8",
     "wrangler": "^4.149.0"
   }
 }
