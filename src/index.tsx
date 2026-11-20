@@ -32,6 +32,24 @@ function CaptureMark() {
   </svg>;
 }
 
+/** Lounge's mark: a screen with a play symbol, in the card's current color. */
+function LoungeMark() {
+  return <svg class="tv-mark" viewBox="0 0 128 128" aria-hidden="true">
+    <rect x="22" y="28" width="84" height="54" rx="8" fill="none" stroke="currentColor" stroke-width="7" />
+    <path d="M56 44v22l18-11z" fill="currentColor" />
+    <path d="M30 96c0-6 4-9 9-9h50c5 0 9 3 9 9v6H30z" fill="currentColor" opacity=".55" />
+  </svg>;
+}
+
+/** Nexus's mark: a screen with a panel row, in the card's current color. */
+function NexusMark() {
+  return <svg class="tv-mark" viewBox="0 0 128 128" aria-hidden="true">
+    <rect x="20" y="24" width="88" height="62" rx="8" fill="none" stroke="currentColor" stroke-width="7" />
+    <rect x="31" y="60" width="66" height="15" rx="4" fill="currentColor" />
+    <path d="M30 100c0-6 4-9 9-9h50c5 0 9 3 9 9v6H30z" fill="currentColor" opacity=".55" />
+  </svg>;
+}
+
 /** A portfolio card. `preview` marks a read-only preview; `href` a live app. */
 interface Product {
   no: string;
@@ -43,6 +61,8 @@ interface Product {
   symbol: string | ReturnType<typeof CaptureMark>;
   preview?: string;
   href?: string;
+  /** The app is a download, so its link leads to a download page. */
+  download?: boolean;
 }
 
 function App() {
@@ -52,9 +72,12 @@ function App() {
   const locale = (): Locale => preference() === 'system' ? systemLocale() : preference() as Locale;
   const t = (key: keyof typeof copy.en) => copy[locale()][key] || copy.en[key];
   const changeLanguage = (value: Preference) => { setPreference(value); savePreference(value); };
+  const linkLabel = (product: Product) => product.preview ? t('openPreview') : product.download ? t('getApp') : t('openApp');
   const products = (): Product[] => [
   { no: '01', name: 'Capture', category: t('photography'), description: t('captureDescription'), note: t('portfolio'), class: 'photos', symbol: <CaptureMark />, href: 'https://capture.plu.nz/' },
   { no: '02', name: 'Split', category: t('everyday'), description: t('splitDescription'), note: t('billSplitting'), class: 'split', symbol: '÷', href: 'https://split.plu.nz/' },
+  { no: '03', name: 'Lounge', category: t('tv'), description: t('loungeDescription'), note: t('linuxDownload'), class: 'lounge', symbol: <LoungeMark />, href: 'https://lounge.plu.nz/', download: true },
+  { no: '04', name: 'Nexus', category: t('tv'), description: t('nexusDescription'), note: t('linuxDownload'), class: 'nexus', symbol: <NexusMark />, href: 'https://nexus.plu.nz/', download: true },
 ];
   const refreshSystem = () => setSystemLocale(detectLocale());
   const refreshPreference = () => setPreference(readPreference());
@@ -115,10 +138,10 @@ function App() {
         <div class="section-index"><span>{t('theToolbox')}</span><span>02 / 02</span></div>
         <div class="apps-heading"><div><div class="eyebrow">{t('building')}</div><h2 id="apps-title">{t('meet')}<span class="accent-dot">.</span></h2></div><p>{t('appsDescription')}</p></div>
         <div class="app-grid">{products().map(product => <article class={`app-card ${product.class}${product.preview || product.href ? ' linked' : ''}`} aria-labelledby={`title-${product.no}`}>
-          <div class="card-top"><span class="card-number">{product.no} / 02</span><span class="status"><span class="status-dot" /> {product.preview ? t('previewStatus') : t('available')}</span></div>
+          <div class="card-top"><span class="card-number">{product.no} / {String(products().length).padStart(2, '0')}</span><span class="status"><span class="status-dot" /> {product.preview ? t('previewStatus') : t('available')}</span></div>
           <div class="app-visual" aria-hidden="true"><div class="visual-surface"><span class="visual-symbol">{product.symbol}</span><span class="visual-plus">+</span></div></div>
           <div class="card-content"><p class="card-category">{product.category}</p><h3 id={`title-${product.no}`}>{product.name}</h3><p>{product.description}</p></div>
-          <div class="card-foot"><span>{product.note}</span>{(product.preview || product.href) && <a class="preview-link" href={product.preview || product.href} aria-label={`${product.preview ? t('openPreview') : t('openApp')} ${product.name}`}>{product.preview ? t('openPreview') : t('openApp')} <Arrow /></a>}</div>
+          <div class="card-foot"><span>{product.note}</span>{(product.preview || product.href) && <a class="preview-link" href={product.preview || product.href} aria-label={`${linkLabel(product)} ${product.name}`}>{linkLabel(product)} <Arrow /></a>}</div>
         </article>)}</div>
         <p class="availability-note">{t('availability')}</p>
       </div></section>
