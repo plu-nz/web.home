@@ -23,6 +23,14 @@ function Arrow(props: { direction?: 'right' | 'up' }) {
 
 
 
+/** Capture's viewfinder mark, drawn in the card's current color. */
+function CaptureMark() {
+  return <svg class="capture-mark" viewBox="146 146 220 220" aria-hidden="true">
+    <path d="M146 196V146H196M316 146H366V196M366 316V366H316M196 366H146V316" fill="none" stroke="currentColor" stroke-width="22" stroke-linecap="square" />
+    <circle cx="256" cy="256" r="52" fill="currentColor" />
+  </svg>;
+}
+
 function App() {
 
   const [preference, setPreference] = createSignal<Preference>(readPreference());
@@ -31,7 +39,7 @@ function App() {
   const t = (key: keyof typeof copy.en) => copy[locale()][key] || copy.en[key];
   const changeLanguage = (value: Preference) => { setPreference(value); savePreference(value); };
   const products = () => [
-  { no: '01', name: 'Capture', category: t('photography'), description: t('captureDescription'), note: t('portfolio'), class: 'photos', symbol: '◰', preview: 'https://capture.plu.nz/' },
+  { no: '01', name: 'Capture', category: t('photography'), description: t('captureDescription'), note: t('portfolio'), class: 'photos', symbol: <CaptureMark />, preview: 'https://capture.plu.nz/' },
   { no: '02', name: 'Split', category: t('everyday'), description: t('splitDescription'), note: t('billSplitting'), class: 'split', symbol: '÷', href: 'https://split.plu.nz/' },
   { no: '03', name: 'Pomodoro', category: t('everyday'), description: t('pomodoroDescription'), note: t('focusTimer'), class: 'pomodoro', symbol: '◷', href: 'https://pomodoro.plu.nz/' },
 ];
