@@ -24,7 +24,7 @@ pnpm deploy
 
 ## Design
 
-This MVP uses the [visual identity proposal](https://github.com/plu-nz/.github/pull/2) pending approval. It uses the exact Darkppuccin colors, a square PLUNZ mark, system fonts, and a restrained icon style. Review the proposal before changing shared rules.
+This MVP uses the [visual identity proposal](https://github.com/plu-nz/.github/pull/2) pending approval. It uses the exact Tinta colors, a square PLUNZ mark, system fonts, and a restrained icon style. Review the proposal before changing shared rules.
 
 Product names are decided individually. Keep portfolio cards limited to products with a live app or preview, and state their availability accurately.
 
